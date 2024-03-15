@@ -32,7 +32,7 @@ const Dropdown = ({ options, value, onChange }) => {
     onChange(option);
   };
 
-  // Question mark syntax on selection (line 43) is a more concise way to perform
+  // Question mark syntax on selection (line 45) is a more concise way to perform
   // conditional rendering via a psuedo-terniary expression. If you try to check
   // whether selection is truthy with the 'AND' 'OR' operators you will get an error
   // but by adding the question mark it will evaluate to a boolean instead.
