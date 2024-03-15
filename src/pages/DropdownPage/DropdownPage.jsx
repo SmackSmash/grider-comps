@@ -20,11 +20,11 @@ const DropdownPage = () => {
   }, []);
 
   return (
-    <>
+    <div>
       <h1 className='text-slate-300 flex'>DROPDOWN</h1>
       <Dropdown options={options} value={selection} onChange={handleSelect} />
       <Dropdown options={options} value={selection} onChange={handleSelect} />
-    </>
+    </div>
   );
 };
 

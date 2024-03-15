@@ -9,10 +9,10 @@ const SliderPage = () => {
   }, []);
 
   return (
-    <>
+    <div>
       <h1 className='text-slate-300'>SLIDER</h1>
       <Slider value={age} onChange={handleChange} />;
-    </>
+    </div>
   );
 };
 
