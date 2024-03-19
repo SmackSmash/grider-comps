@@ -7,7 +7,8 @@ const SideBar = () => {
     createLink('Accordion', '/accordion'),
     createLink('Button', '/button'),
     createLink('Dropdown', '/dropdown'),
-    createLink('Slider', '/slider')
+    createLink('Slider', '/slider'),
+    createLink('Modal', '/modal')
   ];
   return (
     <div className='sidebar bg-slate-300 p-6 mr-6 flex flex-col'>
