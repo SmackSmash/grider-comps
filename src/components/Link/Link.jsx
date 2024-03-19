@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 
 const Link = ({ children, to, ...rest }) => {
-  const handleClick = ({ target }) => {
-    console.log(target, document.location.pathname);
+  const handleClick = e => {
+    e.preventDefault();
+    console.log(e, document.location.pathname);
   };
 
   return (
