@@ -11,7 +11,7 @@ const Link = ({ children, to, ...rest }) => {
   };
 
   return (
-    <a href={to} onClick={handleClick} {...rest}>
+    <a className='text-blue-800 underline' href={to} onClick={handleClick} {...rest}>
       {children}
     </a>
   );
