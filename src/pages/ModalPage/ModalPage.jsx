@@ -4,7 +4,7 @@ const ModalPage = () => {
   return (
     <div>
       <h1 className='text-slate-300'>Modal</h1>
-      <Modal />
+      <Modal message='Click outside this area to close the modal message' />
     </div>
   );
 };
