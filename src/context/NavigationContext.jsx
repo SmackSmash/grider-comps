@@ -7,15 +7,22 @@ const NavigationContextProvider = ({ children }) => {
   const [location, setLocation] = useState(window.location.pathname);
 
   useEffect(() => {
-    const handler = () => setLocation(window.location.pathname);
-
+    const handler = () => {
+      setLocation(window.location.pathname);
+    };
     window.addEventListener('popstate', handler);
 
     // Return cleanup as arrow function to avoid it running on initial load
     return () => window.removeEventListener('popstate', handler);
   }, []);
 
-  return <NavigationContext.Provider value={{ location, setLocation }}>{children}</NavigationContext.Provider>;
+  const navigate = to => {
+    setLocation(to);
+    document.title = to[1].toUpperCase() + to.slice(2) + ' Page';
+    window.history.pushState({}, '', to);
+  };
+
+  return <NavigationContext.Provider value={{ location, navigate }}>{children}</NavigationContext.Provider>;
 };
 
 NavigationContextProvider.propTypes = {

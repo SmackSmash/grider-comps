@@ -5,6 +5,8 @@ import DropdownPage from './pages/DropdownPage/DropdownPage';
 import SliderPage from './pages/SliderPage/SliderPage';
 
 const App = () => {
+  document.title = window.location.pathname[1].toUpperCase() + window.location.pathname.slice(2) + ' Page';
+
   return (
     <div className='flex'>
       <SideBar />
