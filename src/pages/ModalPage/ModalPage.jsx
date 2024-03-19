@@ -3,10 +3,10 @@ import Modal from '../../components/Modal/Modal';
 import Button from '../../components/Button/Button';
 
 const ModalPage = () => {
-  const [portalVisible, setPortalVisible] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const handleClick = () => {
-    setPortalVisible(!portalVisible);
+    setShowModal(!showModal);
   };
 
   return (
@@ -15,11 +15,7 @@ const ModalPage = () => {
       <Button primary onClick={handleClick}>
         Open Modal
       </Button>
-      <Modal
-        portalVisible={portalVisible}
-        onClick={handleClick}
-        message='Click outside this area to close the modal message'
-      />
+      <Modal showModal={showModal} onClick={handleClick} message='Click outside this area to close the modal message' />
     </div>
   );
 };
