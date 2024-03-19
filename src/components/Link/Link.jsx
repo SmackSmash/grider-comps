@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 const Link = ({ children, to, ...rest }) => {
   const handleClick = e => {
     e.preventDefault();
-    console.log(e, document.location.pathname);
+    window.history.pushState({}, '', to);
   };
 
   return (
