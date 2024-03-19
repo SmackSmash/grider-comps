@@ -1,24 +1,13 @@
-import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
-import Button from '../Button/Button';
 
-const Modal = ({ message }) => {
-  const [portalVisible, setPortalVisible] = useState(false);
-
-  const handleClick = () => {
-    setPortalVisible(!portalVisible);
-  };
-
+const Modal = ({ message, portalVisible, onClick }) => {
   return (
     <div>
-      <Button primary onClick={handleClick}>
-        Open Modal
-      </Button>
       {portalVisible &&
         createPortal(
           <div
-            onClick={handleClick}
+            onClick={onClick}
             className='fixed cursor-pointer bg-black/50 top-0 left-0 w-full h-full flex items-center justify-center'>
             <div className='bg-white p-8 cursor-default rounded' onClick={e => e.stopPropagation()}>
               {message}
@@ -31,7 +20,9 @@ const Modal = ({ message }) => {
 };
 
 Modal.propTypes = {
-  message: PropTypes.string
+  message: PropTypes.string,
+  portalVisible: PropTypes.bool,
+  onClick: PropTypes.func
 };
 
 export default Modal;

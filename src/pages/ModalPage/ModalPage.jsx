@@ -1,10 +1,25 @@
+import { useState } from 'react';
 import Modal from '../../components/Modal/Modal';
+import Button from '../../components/Button/Button';
 
 const ModalPage = () => {
+  const [portalVisible, setPortalVisible] = useState(false);
+
+  const handleClick = () => {
+    setPortalVisible(!portalVisible);
+  };
+
   return (
     <div>
       <h1 className='text-slate-300'>Modal</h1>
-      <Modal message='Click outside this area to close the modal message' />
+      <Button primary onClick={handleClick}>
+        Open Modal
+      </Button>
+      <Modal
+        portalVisible={portalVisible}
+        onClick={handleClick}
+        message='Click outside this area to close the modal message'
+      />
     </div>
   );
 };
