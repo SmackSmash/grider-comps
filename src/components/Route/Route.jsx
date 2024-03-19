@@ -1,9 +1,8 @@
-import { useContext } from 'react';
-import { NavigationContext } from '../../context/NavigationContext';
+import useNavigation from '../../hooks/useNavigation';
 import PropTypes from 'prop-types';
 
 const Route = ({ path, children }) => {
-  const { location } = useContext(NavigationContext);
+  const { location } = useNavigation();
 
   return path === location && children;
 };

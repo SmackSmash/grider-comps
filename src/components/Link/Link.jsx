@@ -1,9 +1,8 @@
-import { useContext } from 'react';
-import { NavigationContext } from '../../context/NavigationContext';
+import useNavigation from '../../hooks/useNavigation';
 import PropTypes from 'prop-types';
 
 const Link = ({ children, to, ...rest }) => {
-  const { navigate } = useContext(NavigationContext);
+  const { navigate } = useNavigation();
 
   const handleClick = e => {
     e.preventDefault();
