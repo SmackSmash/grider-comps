@@ -11,7 +11,7 @@ const Link = ({ children, to, ...rest }) => {
 
   return (
     <a
-      className={`text-blue-800 underline p-2${location === to ? ' font-bold border-l border-sky-500' : ''}`}
+      className={`text-blue-800 underline px-2 my-2${location === to ? ' font-bold border-l-4 border-blue-800' : ''}`}
       href={to}
       onClick={handleClick}
       {...rest}>
