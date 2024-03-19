@@ -7,7 +7,7 @@ const Link = ({ children, to, ...rest }) => {
 
   const handleClick = e => {
     e.preventDefault();
-    e.ctrlKey ? window.open(window.location.origin + to, '_blank') : navigate(to);
+    e.ctrlKey || e.metaKey ? window.open(window.location.origin + to, '_blank') : navigate(to);
   };
 
   return (
