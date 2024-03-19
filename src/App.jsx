@@ -1,22 +1,30 @@
-import { useContext } from 'react';
-import { NavigationContext } from './context/NavigationContext';
+import HomePage from './pages/HomePage/HomePage';
 import ButtonPage from './pages/ButtonPage/ButtonPage';
 import AccordionPage from './pages/AccordionPage/AccordionPage';
-import SideBar from './components/SideBar/SideBar';
 import DropdownPage from './pages/DropdownPage/DropdownPage';
 import SliderPage from './pages/SliderPage/SliderPage';
+import SideBar from './components/SideBar/SideBar';
+import Route from './components/Route/Route';
 
 const App = () => {
-  const { location } = useContext(NavigationContext);
-
   return (
     <div className='flex'>
       <SideBar />
-      {location === '/' && <h1 className='text-slate-300'>Selct an option from the sidebar</h1>}
-      {location === '/accordion' && <AccordionPage />}
-      {location === '/button' && <ButtonPage />}
-      {location === '/dropdown' && <DropdownPage />}
-      {location === '/slider' && <SliderPage />}
+      <Route path='/'>
+        <HomePage />
+      </Route>
+      <Route path='/accordion'>
+        <AccordionPage />
+      </Route>
+      <Route path='/button'>
+        <ButtonPage />
+      </Route>
+      <Route path='/dropdown'>
+        <DropdownPage />
+      </Route>
+      <Route path='/slider'>
+        <SliderPage />
+      </Route>
     </div>
   );
 };
