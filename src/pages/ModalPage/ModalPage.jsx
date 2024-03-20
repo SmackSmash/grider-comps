@@ -20,7 +20,7 @@ const ModalPage = () => {
         Open Modal
       </Button>
       <Modal showModal={showModal} onClose={handleClose}>
-        <p>Click outside this area to close the modal message</p>
+        <p className='mb-6'>Click outside this area to close the modal message</p>
         <Button success onClick={handleClose}>
           I accept
         </Button>

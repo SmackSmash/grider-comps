@@ -8,7 +8,9 @@ const Modal = ({ children, showModal, onClose }) => {
       <div
         onClick={onClose}
         className='fixed cursor-pointer bg-black/50 inset-0 w-full flex items-center justify-center'>
-        <div className='bg-white p-8 cursor-default rounded' onClick={e => e.stopPropagation()}>
+        <div
+          className='bg-white p-8 cursor-default rounded flex flex-col justify-center'
+          onClick={e => e.stopPropagation()}>
           {children}
         </div>
       </div>,

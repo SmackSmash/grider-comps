@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 const Button = ({ children, primary, secondary, success, warning, danger, outline, rounded, ...rest }) => {
   const btnClass = classNames(
-    'min-w-48 font-semibold uppercase p-3 my-2 border-4 opacity-90 hover:opacity-100 flex items-center justify-center',
+    'min-w-48 font-semibold uppercase p-3 my-2 border-4 opacity-90 hover:opacity-100 flex items-center justify-center self-center',
     {
       'bg-blue-700 border-blue-500 text-white': primary,
       'bg-slate-700 border-slate-500 text-white': secondary,
