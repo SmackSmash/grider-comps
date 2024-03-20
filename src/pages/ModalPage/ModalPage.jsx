@@ -5,7 +5,7 @@ import Button from '../../components/Button/Button';
 const ModalPage = () => {
   const [showModal, setShowModal] = useState(false);
 
-  const handleClick = () => {
+  const handleOpen = () => {
     setShowModal(true);
   };
 
@@ -16,7 +16,7 @@ const ModalPage = () => {
   return (
     <div>
       <h1 className='text-slate-300'>Modal</h1>
-      <Button primary onClick={handleClick}>
+      <Button primary onClick={handleOpen}>
         Open Modal
       </Button>
       <Modal showModal={showModal} onClose={handleClose}>
