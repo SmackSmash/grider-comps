@@ -6,7 +6,11 @@ const ModalPage = () => {
   const [showModal, setShowModal] = useState(false);
 
   const handleClick = () => {
-    setShowModal(!showModal);
+    setShowModal(true);
+  };
+
+  const handleClose = () => {
+    setShowModal(false);
   };
 
   return (
@@ -15,9 +19,9 @@ const ModalPage = () => {
       <Button primary onClick={handleClick}>
         Open Modal
       </Button>
-      <Modal showModal={showModal} onClick={handleClick}>
+      <Modal showModal={showModal} onClose={handleClose}>
         <p>Click outside this area to close the modal message</p>
-        <Button success onClick={handleClick}>
+        <Button success onClick={handleClose}>
           I accept
         </Button>
       </Modal>
