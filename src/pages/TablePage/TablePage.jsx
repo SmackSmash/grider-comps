@@ -1,6 +1,6 @@
 import Table from '../../components/Table/Table';
 
-const createData = (fruit, color, score) => ({ fruit, color, score });
+const createData = (name, color, score) => ({ name, color, score });
 
 const data = [
   createData('Orange', 'bg-orange-500', 5),
@@ -9,7 +9,11 @@ const data = [
   createData('Lime', 'bg-green-500', 4)
 ];
 
-const config = [{ label: 'Fruit' }, { label: 'Color' }, { label: 'Score' }];
+const config = [
+  { label: 'Fruit', render: fruit => fruit.name },
+  { label: 'Color', render: fruit => <div className={`w-6 h-6 ${fruit.color}`}></div> },
+  { label: 'Score', render: fruit => fruit.score }
+];
 
 const TablePage = () => {
   return (

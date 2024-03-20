@@ -10,7 +10,7 @@ import Route from './components/Route/Route';
 
 const App = () => {
   return (
-    <div className='flex'>
+    <div className='flex h-screen'>
       <SideBar />
       <Route path='/'>
         <HomePage />

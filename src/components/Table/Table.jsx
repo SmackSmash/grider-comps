@@ -13,13 +13,13 @@ const Table = ({ data, config }) => {
         </tr>
       </thead>
       <tbody>
-        {data.map(({ fruit, color, score }) => (
-          <tr className='border-b' key={fruit}>
-            <td className='p-3'>{fruit}</td>
-            <td className='p-3'>
-              <div className={`w-6 h-6 ${color}`}></div>
-            </td>
-            <td className='p-3'>{score}</td>
+        {data.map((fruit, index) => (
+          <tr className='border-b' key={index}>
+            {config.map(({ render }, index) => (
+              <td key={index} className='p-3'>
+                {render(fruit)}
+              </td>
+            ))}
           </tr>
         ))}
       </tbody>
