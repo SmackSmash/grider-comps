@@ -9,11 +9,13 @@ const data = [
   createData('Lime', 'bg-green-500', 4)
 ];
 
+const config = [{ label: 'Fruit' }, { label: 'Color' }, { label: 'Score' }];
+
 const TablePage = () => {
   return (
     <div>
       <h1 className='text-slate-300'>TABLE</h1>
-      <Table data={data} />
+      <Table data={data} config={config} />
     </div>
   );
 };

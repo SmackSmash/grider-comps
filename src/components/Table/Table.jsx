@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 
-const Table = ({ data }) => {
+const Table = ({ data, config }) => {
   return (
     <table className='text-slate-300 table-auto border-spacing-2'>
       <thead>
         <tr className='border-b-2'>
-          {Object.keys(data[0]).map(key => (
-            <th className='p-3' key={key}>
-              {key.charAt(0).toUpperCase() + key.slice(1)}
+          {config.map(({ label }) => (
+            <th className='p-3' key={label}>
+              {label}
             </th>
           ))}
         </tr>
@@ -28,7 +28,8 @@ const Table = ({ data }) => {
 };
 
 Table.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object)
+  data: PropTypes.arrayOf(PropTypes.object),
+  config: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default Table;
