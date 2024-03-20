@@ -1,7 +1,7 @@
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 
-const Modal = ({ message, showModal, onClick }) => {
+const Modal = ({ children, showModal, onClick }) => {
   return (
     showModal &&
     createPortal(
@@ -9,16 +9,16 @@ const Modal = ({ message, showModal, onClick }) => {
         onClick={onClick}
         className='fixed cursor-pointer bg-black/50 inset-0 w-full flex items-center justify-center'>
         <div className='bg-white p-8 cursor-default rounded' onClick={e => e.stopPropagation()}>
-          {message}
+          {children}
         </div>
       </div>,
-      document.body
+      document.querySelector('.modal-container')
     )
   );
 };
 
 Modal.propTypes = {
-  message: PropTypes.string,
+  children: PropTypes.node,
   showModal: PropTypes.bool,
   onClick: PropTypes.func
 };

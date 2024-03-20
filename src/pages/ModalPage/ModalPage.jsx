@@ -15,7 +15,12 @@ const ModalPage = () => {
       <Button primary onClick={handleClick}>
         Open Modal
       </Button>
-      <Modal showModal={showModal} onClick={handleClick} message='Click outside this area to close the modal message' />
+      <Modal showModal={showModal} onClick={handleClick}>
+        <p>Click outside this area to close the modal message</p>
+        <Button success onClick={handleClick}>
+          I accept
+        </Button>
+      </Modal>
     </div>
   );
 };
