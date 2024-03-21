@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { LiaSortSolid } from 'react-icons/lia';
 
 const Table = ({ data, config }) => {
   return (
@@ -7,6 +8,7 @@ const Table = ({ data, config }) => {
         <tr className='border-b-2'>
           {config.map(({ label }) => (
             <th className='p-3' key={label}>
+              <LiaSortSolid className='inline-block' />
               {label}
             </th>
           ))}
