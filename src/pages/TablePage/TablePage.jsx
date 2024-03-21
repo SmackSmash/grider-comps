@@ -15,7 +15,7 @@ const TablePage = () => {
     {
       label: 'Fruit',
       render: fruit => fruit.name,
-      sort: () => setData([...data].sort((a, b) => a.name.charCodeAt(0) - b.name.charCodeAt(0)))
+      sort: () => setData([...data].sort((a, b) => (a.name[0] < b.name[0] ? -1 : 1)))
     },
     { label: 'Color', render: fruit => <div className={`w-6 h-6 ${fruit.color}`}></div> },
     { label: 'Score', render: fruit => fruit.score, sort: () => setData([...data].sort((a, b) => a.score - b.score)) }
