@@ -6,9 +6,9 @@ const Table = ({ data, config }) => {
     <table className='text-slate-300 table-auto border-spacing-2'>
       <thead>
         <tr className='border-b-2'>
-          {config.map(({ label }) => (
+          {config.map(({ label, sort }) => (
             <th className='p-3' key={label}>
-              <LiaSortSolid className='inline-block' />
+              {sort && <LiaSortSolid onClick={sort} className='inline-block cursor-pointer' />}
               {label}
             </th>
           ))}
