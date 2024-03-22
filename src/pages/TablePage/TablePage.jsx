@@ -23,27 +23,44 @@ const TablePage = () => {
       sort: () =>
         setData(
           [...data].sort((a, b) => {
-            if (sorted === 'alphabetical-ascending') {
-              setSorted('alphabetical-descending');
-              return b.name.localeCompare(a.name);
+            switch (sorted) {
+              case 'alphabetical-ascending':
+                setSorted('alphabetical-descending');
+                return b.name.localeCompare(a.name);
+              case 'alphabetical-descending':
+              default:
+                setSorted('alphabetical-ascending');
+                return a.name.localeCompare(b.name);
             }
-            if (sorted === 'alphabetical-descending') {
-              setSorted('alphabetical-ascending');
-              return a.name.localeCompare(b.name);
-            }
-            setSorted('alphabetical-ascending');
-            return a.name.localeCompare(b.name);
           })
         )
     },
     { label: 'Color', render: fruit => <div className={`w-6 h-6 border border-slate-500 ${fruit.color}`}></div> },
-    { label: 'Score', render: fruit => fruit.score, sort: () => setData([...data].sort((a, b) => a.score - b.score)) }
+    {
+      label: 'Score',
+      render: fruit => fruit.score,
+      sort: () =>
+        setData(
+          [...data].sort((a, b) => {
+            switch (sorted) {
+              case 'numerical-ascending':
+                setSorted('numerical-descending');
+                return b.score - a.score;
+              case 'numerical-descending':
+              default:
+                setSorted('numerical-ascending');
+                return a.score - b.score;
+            }
+          })
+        )
+    }
   ];
 
   return (
     <div>
       <h1 className='text-slate-300'>TABLE</h1>
       <Table data={data} config={config} />
+      <p className='text-slate-300'>{sorted}</p>
     </div>
   );
 };
