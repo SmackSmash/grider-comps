@@ -24,12 +24,12 @@ const TablePage = () => {
         setData(
           [...data].sort((a, b) => {
             switch (sorted) {
-              case 'alphabetical-ascending':
-                setSorted('alphabetical-descending');
+              case 'alpha-asc':
+                setSorted('alpha-desc');
                 return b.name.localeCompare(a.name);
-              case 'alphabetical-descending':
+              case 'alpha-desc':
               default:
-                setSorted('alphabetical-ascending');
+                setSorted('alpha-asc');
                 return a.name.localeCompare(b.name);
             }
           })
@@ -43,12 +43,12 @@ const TablePage = () => {
         setData(
           [...data].sort((a, b) => {
             switch (sorted) {
-              case 'numerical-ascending':
-                setSorted('numerical-descending');
+              case 'num-asc':
+                setSorted('num-desc');
                 return b.score - a.score;
-              case 'numerical-descending':
+              case 'num-desc':
               default:
-                setSorted('numerical-ascending');
+                setSorted('num-asc');
                 return a.score - b.score;
             }
           })
@@ -60,7 +60,7 @@ const TablePage = () => {
     <div>
       <h1 className='text-slate-300'>TABLE</h1>
       <Table data={data} config={config} />
-      <p className='text-slate-300'>{sorted}</p>
+      <p className='text-slate-300'>Sorting: {sorted || 'none'}</p>
     </div>
   );
 };
