@@ -14,11 +14,25 @@ const TablePage = () => {
     createFruit('Blueberry', 'bg-indigo-950', 7)
   ]);
 
+  const [sorted, setSorted] = useState(false);
+
   const config = [
     {
       label: 'Fruit',
       render: fruit => fruit.name,
-      sort: () => setData([...data].sort((a, b) => a.name.localeCompare(b.name)))
+      sort: () =>
+        setData(
+          [...data].sort((a, b) => {
+            if (sorted === 'alphabetical-ascending') {
+              setSorted('alphabetical-descending');
+              return b.name.localeCompare(a.name);
+            }
+            if (!sorted || sorted === 'alphabetical-descending') {
+              setSorted('alphabetical-ascending');
+              return a.name.localeCompare(b.name);
+            }
+          })
+        )
     },
     { label: 'Color', render: fruit => <div className={`w-6 h-6 border border-slate-500 ${fruit.color}`}></div> },
     { label: 'Score', render: fruit => fruit.score, sort: () => setData([...data].sort((a, b) => a.score - b.score)) }
