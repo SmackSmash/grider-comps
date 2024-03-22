@@ -6,12 +6,16 @@ const Table = ({ data, config }) => {
     <table className='text-slate-300 table-auto border-spacing-2'>
       <thead>
         <tr className='border-b-2'>
-          {config.map(({ label, sort }) => (
-            <th className='p-3' key={label}>
-              {sort && <LiaSortSolid onClick={sort} className='inline-block cursor-pointer' />}
-              {label}
-            </th>
-          ))}
+          {config.map(({ label, sort, header }) =>
+            header ? (
+              header()
+            ) : (
+              <th className='p-3' key={label}>
+                {sort && <LiaSortSolid onClick={sort} className='inline-block cursor-pointer' />}
+                {label}
+              </th>
+            )
+          )}
         </tr>
       </thead>
       <tbody>
