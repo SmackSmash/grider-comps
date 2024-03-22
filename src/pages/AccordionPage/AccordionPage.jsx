@@ -29,7 +29,7 @@ const accordionData = [
 
 const AccordionPage = () => {
   return (
-    <div>
+    <div className='w-full pr-6'>
       <h1 className='text-slate-300'>ACCORDION</h1>
       <Accordion data={accordionData} />
     </div>
