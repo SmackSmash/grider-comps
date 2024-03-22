@@ -27,10 +27,12 @@ const TablePage = () => {
               setSorted('alphabetical-descending');
               return b.name.localeCompare(a.name);
             }
-            if (!sorted || sorted === 'alphabetical-descending') {
+            if (sorted === 'alphabetical-descending') {
               setSorted('alphabetical-ascending');
               return a.name.localeCompare(b.name);
             }
+            setSorted('alphabetical-ascending');
+            return a.name.localeCompare(b.name);
           })
         )
     },
