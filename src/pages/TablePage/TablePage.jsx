@@ -38,7 +38,7 @@ const TablePage = () => {
     {
       label: 'Color',
       render: fruit => <div className={`w-6 h-6 border border-slate-500 ${fruit.color}`}></div>,
-      header: () => <th className='bg-red-500'>Color</th>
+      header: <th className='bg-red-500'>Color</th>
     },
     {
       label: 'Score',

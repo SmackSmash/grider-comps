@@ -8,7 +8,7 @@ const Table = ({ data, config }) => {
         <tr className='border-b-2'>
           {config.map(({ label, sort, header }) =>
             header ? (
-              header()
+              header
             ) : (
               <th className='p-3' key={label}>
                 {sort && <LiaSortSolid onClick={sort} className='inline-block cursor-pointer' />}
