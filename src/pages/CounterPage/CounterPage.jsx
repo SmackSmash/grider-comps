@@ -15,6 +15,7 @@ const CounterPage = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    setAddition('');
     setCount(count + Number(addition));
   };
 
@@ -31,7 +32,7 @@ const CounterPage = () => {
         </Button>
       </div>
       <form onSubmit={handleSubmit}>
-        <input type='number' value={addition} onChange={handleChange} />
+        <input type='number' className='p-2' placeholder='Add a lot' value={addition} onChange={handleChange} />
         <Button type='submit' primary>
           {addition ? `Add ${addition}` : `Add`}
         </Button>
