@@ -25,29 +25,16 @@ const reducer = (state, action) => {
 };
 
 const CounterPage = () => {
-  // const [count, setCount] = useState(0);
-  // const [addition, setAddition] = useState('');
   const [state, dispatch] = useReducer(reducer, { count: 0, addition: '' });
 
-  const handleIncrement = () => {
-    // setCount(count + 1);
-    dispatch({ type: types.INCREMENT });
-  };
+  const handleIncrement = () => dispatch({ type: types.INCREMENT });
 
-  const handleDecrement = () => {
-    // setCount(count - 1);
-    dispatch({ type: types.DECREMENT });
-  };
+  const handleDecrement = () => dispatch({ type: types.DECREMENT });
 
-  const handleChange = e => {
-    // setAddition(e.target.value);
-    dispatch({ type: types.SET_ADDITION, payload: Number(e.target.value) });
-  };
+  const handleChange = e => dispatch({ type: types.SET_ADDITION, payload: Number(e.target.value) });
 
   const handleSubmit = e => {
     e.preventDefault();
-    // setAddition('');
-    // setCount(count + Number(addition));
     dispatch({ type: types.ADD_MANY });
   };
 
