@@ -8,7 +8,8 @@ const links = [
   createLink('Dropdown', '/dropdown'),
   createLink('Slider', '/slider'),
   createLink('Modal', '/modal'),
-  createLink('Table', '/table')
+  createLink('Table', '/table'),
+  createLink('Counter', '/counter')
 ];
 
 const SideBar = () => {
