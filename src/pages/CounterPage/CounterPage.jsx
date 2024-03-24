@@ -22,12 +22,14 @@ const CounterPage = () => {
     <div>
       <h1 className='text-slate-300 flex'>COUNTER</h1>
       <h2 className='text-slate-300 text-6xl'>{count}</h2>
-      <Button success onClick={handleIncrement}>
-        Increment
-      </Button>
-      <Button danger onClick={handleDecrement}>
-        Decrement
-      </Button>
+      <div className='flex row gap-2'>
+        <Button danger onClick={handleDecrement}>
+          Decrement
+        </Button>
+        <Button success onClick={handleIncrement}>
+          Increment
+        </Button>
+      </div>
       <form onSubmit={handleSubmit}>
         <input type='number' value={addition} onChange={handleChange} />
         <Button type='submit' primary>
