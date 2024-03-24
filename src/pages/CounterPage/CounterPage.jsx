@@ -2,15 +2,22 @@
 import { useReducer } from 'react';
 import Button from '../../components/Button/Button';
 
+const types = {
+  INCREMENT: 'INCREMENT',
+  DECREMENT: 'DECREMENT',
+  SET_ADDITION: 'SET_ADDITION',
+  ADD_MANY: 'ADD_MANY'
+};
+
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'increment':
+    case types.INCREMENT:
       return { ...state, count: state.count + 1 };
-    case 'decrement':
+    case types.DECREMENT:
       return { ...state, count: state.count - 1 };
-    case 'set_addition':
+    case types.SET_ADDITION:
       return { ...state, addition: action.payload };
-    case 'add_many':
+    case types.ADD_MANY:
       return { count: state.count + state.addition, addition: '' };
     default:
       return state;
@@ -24,24 +31,24 @@ const CounterPage = () => {
 
   const handleIncrement = () => {
     // setCount(count + 1);
-    dispatch({ type: 'increment' });
+    dispatch({ type: types.INCREMENT });
   };
 
   const handleDecrement = () => {
     // setCount(count - 1);
-    dispatch({ type: 'decrement' });
+    dispatch({ type: types.DECREMENT });
   };
 
   const handleChange = e => {
     // setAddition(e.target.value);
-    dispatch({ type: 'set_addition', payload: Number(e.target.value) });
+    dispatch({ type: types.SET_ADDITION, payload: Number(e.target.value) });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
     // setAddition('');
     // setCount(count + Number(addition));
-    dispatch({ type: 'add_many' });
+    dispatch({ type: types.ADD_MANY });
   };
 
   return (
