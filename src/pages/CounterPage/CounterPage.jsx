@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import { useReducer } from 'react';
 import Button from '../../components/Button/Button';
 
