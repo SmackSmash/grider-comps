@@ -17,7 +17,7 @@ const reducer = (state, action) => {
     case types.SET_ADDITION:
       return { ...state, addition: action.payload };
     case types.ADD_MANY:
-      return { count: state.count + state.addition, addition: '' };
+      return { ...state, count: state.count + state.addition, addition: '' };
     default:
       return state;
   }
