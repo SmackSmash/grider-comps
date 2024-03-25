@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+import { produce } from 'immer';
 import Button from '../../components/Button/Button';
 
 const types = {
@@ -8,23 +9,46 @@ const types = {
   ADD_MANY: 'ADD_MANY'
 };
 
+// Vanilla react
+// const reducer = (state, action) => {
+//   switch (action.type) {
+//     case types.INCREMENT:
+//       return { ...state, count: state.count + 1 };
+//     case types.DECREMENT:
+//       return { ...state, count: state.count - 1 };
+//     case types.SET_ADDITION:
+//       return { ...state, addition: action.payload };
+//     case types.ADD_MANY:
+//       return { ...state, count: state.count + state.addition, addition: '' };
+//     default:
+//       return state;
+//   }
+// };
+
+// With immer (directly mutate state!)
 const reducer = (state, action) => {
   switch (action.type) {
     case types.INCREMENT:
-      return { ...state, count: state.count + 1 };
+      state.count++;
+      return;
     case types.DECREMENT:
-      return { ...state, count: state.count - 1 };
+      state.count--;
+      return;
     case types.SET_ADDITION:
-      return { ...state, addition: action.payload };
+      state.addition = action.payload;
+      return;
     case types.ADD_MANY:
-      return { ...state, count: state.count + state.addition, addition: '' };
+      state.count += state.addition;
+      state.addition = '';
+      return;
     default:
       return state;
   }
 };
 
 const CounterPage = () => {
-  const [state, dispatch] = useReducer(reducer, { count: 0, addition: '' });
+  // Produce added here!
+  const [state, dispatch] = useReducer(produce(reducer), { count: 0, addition: '' });
 
   const handleIncrement = () => dispatch({ type: types.INCREMENT });
 
