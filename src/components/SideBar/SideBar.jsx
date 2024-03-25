@@ -9,7 +9,7 @@ const links = [
   createLink('Slider', '/slider'),
   createLink('Modal', '/modal'),
   createLink('Table', '/table'),
-  createLink('Counter', '/counter')
+  createLink('Counter (useReducer)', '/counter')
 ];
 
 const SideBar = () => {
